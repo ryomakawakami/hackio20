@@ -3,7 +3,7 @@ from keras.layers import Dense
 from keras.layers import Dropout
 from keras.utils import np_utils
 
-class MLP():
+class Model1():
     def __init__(self, x_train, y_train, x_test, y_test):
         # Flatten 28*28 images to a 784 vector
         self.num_pixels = x_train.shape[1] * x_train.shape[2]

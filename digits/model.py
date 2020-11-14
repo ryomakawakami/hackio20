@@ -1,7 +1,8 @@
 from keras.datasets import mnist
+import numpy as np
 
-from digits.mlp import MLP as MLP
-from digits.cnn import CNN as CNN
+import digits.mlp as mlp
+import digits.cnn as cnn
 
 class Model():
     def __init__(self, option):
@@ -13,9 +14,11 @@ class Model():
 
     def createModel(self, option):
         if option == 0:
-            self.model = MLP(self.x_train, self.y_train, self.x_test, self.y_test)
+            self.model = mlp.Model1(self.x_train, self.y_train, self.x_test, self.y_test)
         elif option == 1:
-            self.model = CNN(self.x_train, self.y_train, self.x_test, self.y_test)
+            self.model = cnn.Model1(self.x_train, self.y_train, self.x_test, self.y_test)
+        elif option == 2:
+            self.model = cnn.Model2(self.x_train, self.y_train, self.x_test, self.y_test)
 
     def train(self, verbose=2):
         self.model.train(verbose)
